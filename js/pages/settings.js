@@ -45,7 +45,8 @@ export function renderSettings() {
             <input
                 id="storeIP"
                 class="w-full border rounded-lg p-3 mt-2"
-                placeholder="10.123.80.3">
+                placeholder="10.123.80.3"
+                value="${loadSettings().ip}">
 
             <button
                 id="btnTest"
