@@ -27,6 +27,30 @@ export function renderSettings() {
 
             });
 
+        document
+            .getElementById("btnTest")
+            .addEventListener("click", async () => {
+
+                const ip = document.getElementById("storeIP").value;
+
+                const status = document.getElementById("connectionStatus");
+
+                status.innerHTML = "Testing...";
+
+                const result = await testConnection(ip);
+
+                if (result.success) {
+
+                    status.innerHTML = "🟢 Connected";
+
+                } else {
+
+                    status.innerHTML = "🔴 Connection Failed";
+
+                }
+
+            });
+
     }, 0);
 
     return `
