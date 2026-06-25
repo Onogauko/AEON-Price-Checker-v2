@@ -1,3 +1,5 @@
+import { navigate } from "../router.js";
+
 export function renderHome() {
 
     return `
@@ -81,3 +83,15 @@ export function renderHome() {
     `;
 
 }
+
+setTimeout(() => {
+
+    document
+        .getElementById("btnSettings")
+        .addEventListener("click", () => {
+
+            navigate("settings");
+
+        });
+
+}, 100);
