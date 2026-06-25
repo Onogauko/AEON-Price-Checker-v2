@@ -1,3 +1,3 @@
-import { renderHome } from "./pages/home.js";
+import { navigate } from "./router.js";
 
-document.getElementById("app").innerHTML = renderHome();
+navigate("home");
