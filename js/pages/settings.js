@@ -1,3 +1,5 @@
+import { navigate } from "../router.js";
+
 export function renderSettings() {
 
     return `
@@ -59,3 +61,15 @@ export function renderSettings() {
     `;
 
 }
+
+setTimeout(() => {
+
+    document
+        .getElementById("btnBack")
+        .addEventListener("click", () => {
+
+            navigate("home");
+
+        });
+
+}, 100);
