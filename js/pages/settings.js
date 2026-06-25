@@ -12,6 +12,20 @@ export function renderSettings() {
 
             });
 
+        document
+            .getElementById("btnSave")
+            .addEventListener("click", () => {
+
+                const data = loadSettings();
+
+                data.ip = document.getElementById("storeIP").value;
+
+                saveSettings(data);
+
+                alert("Settings berhasil disimpan");
+
+            });
+
     }, 0);
 
     return `
