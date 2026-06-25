@@ -1,5 +1,6 @@
 import { navigate } from "../router.js";
 import { loadSettings, saveSettings } from "../services/storage.js";
+import { testConnection } from "../services/api.js";
 
 export function renderSettings() {
 
@@ -69,6 +70,14 @@ export function renderSettings() {
                 Test Connection
 
             </button>
+
+            <p
+                id="connectionStatus"
+                class="mt-4 font-bold text-gray-600">
+
+                Not Connected
+
+            </p>
 
             <button
                 id="btnSave"
