@@ -2,14 +2,24 @@ import { navigate } from "../router.js";
 
 export function renderSettings() {
 
+    setTimeout(() => {
+
+        document.getElementById("btnBack")
+            ?.addEventListener("click", () => {
+
+                navigate("home");
+
+            });
+
+    }, 0);
+
     return `
 
     <div class="min-h-screen bg-gray-100">
 
         <div class="bg-red-700 text-white p-5 shadow">
 
-            <button id="btnBack"
-                class="mb-4">
+            <button id="btnBack" class="mb-4">
 
                 ← Back
 
@@ -38,7 +48,6 @@ export function renderSettings() {
 
             <button
                 id="btnTest"
-
                 class="mt-5 bg-red-700 text-white rounded-lg p-3 w-full">
 
                 Test Connection
@@ -47,7 +56,6 @@ export function renderSettings() {
 
             <button
                 id="btnSave"
-
                 class="mt-3 bg-black text-white rounded-lg p-3 w-full">
 
                 Save
@@ -59,17 +67,4 @@ export function renderSettings() {
     </div>
 
     `;
-
 }
-
-setTimeout(() => {
-
-    document
-        .getElementById("btnBack")
-        .addEventListener("click", () => {
-
-            navigate("home");
-
-        });
-
-}, 100);
