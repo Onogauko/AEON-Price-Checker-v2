@@ -94,4 +94,12 @@ setTimeout(() => {
 
         });
 
+    document
+        .getElementById("btnDownload")
+        .addEventListener("click", () => {
+
+            navigate("download");
+
+        });
+
 }, 100);
