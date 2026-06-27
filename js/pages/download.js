@@ -1,4 +1,5 @@
 import { navigate } from "../router.js";
+import { downloadTable } from "../api.js";
 
 export function renderDownload() {
 
@@ -82,16 +83,22 @@ async function startDownload() {
 
     const progressText = document.getElementById("progressText");
 
-    for (let i = 0; i <= 100; i++) {
+    try {
 
-        progressBar.value = i;
+        progressText.innerHTML = "Downloading article_dl...";
 
-        progressText.innerHTML = "Downloading... " + i + "%";
+        const data = await downloadTable("article_dl");
 
-        await new Promise(resolve => setTimeout(resolve, 30));
+        console.log("ARTICLE_DL =", data);
+
+        progressText.innerHTML = "✅ Download Complete";
+
+    } catch (err) {
+
+        console.error(err);
+
+        progressText.innerHTML = "❌ Download Failed";
 
     }
-
-    progressText.innerHTML = "✅ Download Complete";
 
 }
