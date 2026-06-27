@@ -43,18 +43,6 @@ export function renderSettings() {
 
                     status.innerHTML = "🟢 Connected";
 
-                    const data = loadSettings();
-
-                    data.ip = ip;
-                    data.storeCode = result.storeCode;
-                    data.storeName = result.storeName;
-
-                    saveSettings(data);
-
-                    document.getElementById("storeCode").value = result.storeCode;
-
-                    document.getElementById("storeName").value = result.storeName;
-
                 } else {
 
                     status.innerHTML = "🔴 Connection Failed";
@@ -114,6 +102,36 @@ export function renderSettings() {
                 Not Connected
 
             </p>
+
+            <div class="mt-4">
+
+                <label class="font-bold">
+
+                    Store Code
+
+                </label>
+
+                <input
+                    id="storeCode"
+                    class="w-full border rounded-lg p-3 mt-2"
+                    readonly>
+
+            </div>
+
+            <div class="mt-4">
+
+                <label class="font-bold">
+
+                    Store Name
+
+                </label>
+
+                <input
+                    id="storeName"
+                    class="w-full border rounded-lg p-3 mt-2"
+                    readonly>
+
+            </div>
 
             <button
                 id="btnSave"
