@@ -41,16 +41,26 @@ export async function downloadTable(tableName) {
     const url =
         `http://${settings.ip}/aeon-panel/Api/download?table_name=${tableName}`;
 
-    console.log("DOWNLOAD :", url);
+    console.log("REQUEST :", url);
 
-    const response = await fetch(url);
+    try {
 
-    if (!response.ok) {
+        const response = await fetch(url);
 
-        throw new Error("Download gagal");
+        console.log("STATUS :", response.status);
+
+        const text = await response.text();
+
+        console.log("RESPONSE :", text);
+
+        return text;
+
+    } catch (err) {
+
+        console.error("DOWNLOAD ERROR :", err);
+
+        throw err;
 
     }
-
-    return await response.json();
 
 }
