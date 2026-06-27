@@ -1,4 +1,4 @@
-import { loadSettings } from "./storage.js";
+import { loadSettings } from "./services/storage.js";
 
 /**
  * Test koneksi ke Store
