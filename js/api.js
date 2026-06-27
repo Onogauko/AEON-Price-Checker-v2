@@ -5,29 +5,32 @@ import { loadSettings } from "./services/storage.js";
  */
 export async function testConnection(ip) {
 
-    return new Promise((resolve) => {
+    const url = `http://${ip}/aeon-panel/Api/store_detail`;
 
-        setTimeout(() => {
+    console.log("TEST :", url);
 
-            if (ip === "10.123.80.3") {
+    try {
 
-                resolve({
-                    success: true,
-                    storeCode: "1008",
-                    storeName: "AEON Citra Raya"
-                });
+        const response = await fetch(url);
 
-            } else {
+        const text = await response.text();
 
-                resolve({
-                    success: false
-                });
+        console.log(text);
 
-            }
+        return {
+            success: true,
+            raw: text
+        };
 
-        }, 1000);
+    } catch (e) {
 
-    });
+        console.error(e);
+
+        return {
+            success: false
+        };
+
+    }
 
 }
 
