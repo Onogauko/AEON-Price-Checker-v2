@@ -43,6 +43,18 @@ export function renderSettings() {
 
                     status.innerHTML = "🟢 Connected";
 
+                    const data = loadSettings();
+
+                    data.ip = ip;
+                    data.storeCode = result.storeCode;
+                    data.storeName = result.storeName;
+
+                    saveSettings(data);
+
+                    document.getElementById("storeCode").value = result.storeCode;
+
+                    document.getElementById("storeName").value = result.storeName;
+
                 } else {
 
                     status.innerHTML = "🔴 Connection Failed";
@@ -114,7 +126,8 @@ export function renderSettings() {
                 <input
                     id="storeCode"
                     class="w-full border rounded-lg p-3 mt-2"
-                    readonly>
+                    readonly
+                    value="${loadSettings().storeCode || ''}">
 
             </div>
 
@@ -129,7 +142,8 @@ export function renderSettings() {
                 <input
                     id="storeName"
                     class="w-full border rounded-lg p-3 mt-2"
-                    readonly>
+                    readonly
+                    value="${loadSettings().storeName || ''}">
 
             </div>
 
