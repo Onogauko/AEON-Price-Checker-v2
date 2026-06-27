@@ -43,6 +43,18 @@ export function renderSettings() {
 
                     status.innerHTML = "🟢 Connected";
 
+                    const data = loadSettings();
+
+                    data.ip = ip;
+                    data.storeCode = result.storeCode;
+                    data.storeName = result.storeName;
+
+                    saveSettings(data);
+
+                    document.getElementById("storeCode").value = result.storeCode;
+
+                    document.getElementById("storeName").value = result.storeName;
+
                 } else {
 
                     status.innerHTML = "🔴 Connection Failed";
