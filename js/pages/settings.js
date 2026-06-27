@@ -1,6 +1,6 @@
 import { navigate } from "../router.js";
 import { loadSettings, saveSettings } from "../services/storage.js";
-import { testConnection } from "../services/api.js";
+import { testConnection } from "../api.js";
 
 export function renderSettings() {
 
